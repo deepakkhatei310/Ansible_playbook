@@ -2,7 +2,8 @@
 - hosts: all
   become: yes
   tasks: 
-  - name: install webserver
-    apt: 
+  - name: install webserver only on ubuntu nodes
+    service:
      name: apache2
-     state: absent
+     state: started
+    when: ansible_os_family =="Debian"
