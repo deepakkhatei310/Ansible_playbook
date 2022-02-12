@@ -3,7 +3,7 @@
   become: yes
   tasks: 
   - name: install webserver only on ubuntu nodes
-    service:
+    apt:
      name: apache2
-     state: started
+     state: present
     when: ansible_os_family =="Debian"
